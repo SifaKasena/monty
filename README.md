@@ -50,3 +50,7 @@ A little about the directory
 - Twitter - [@Username]()
 - Linkedin - [@Username]()
 - Medium - [User Name]()
+- Github - [omitogunjesufemi](https://github.com/omitogunjesufemi)
+- Twitter - [@Username]()
+- Linkedin - [@Username]()
+- Medium - [User Name]()

@@ -35,7 +35,10 @@ typedef struct instruction_s
 
 void interpret_file(FILE *file);
 void (*get_op_func(char *op))(stack_t **stack, unsigned int line_number);
+size_t print_dlistint(const stack_t *h);
+stack_t *add_dnodeint(stack_t **head, const int n);
 void _push(stack_t **stack, unsigned int line_number);
-void _pull(stack_t **stack, unsigned int line_number);
+void _pall(stack_t **stack, unsigned int line_number);
+int is_number(char *str);
 
 #endif /* MONTY_H */

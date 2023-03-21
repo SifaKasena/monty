@@ -9,7 +9,6 @@
 int main(int argc, char **argv)
 {
 	FILE *file;
-	char lineRead[1024];
 
 	if (argc < 2 || argc > 2)
 	{

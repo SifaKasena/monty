@@ -24,6 +24,8 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 
+	interpret_file(file);
 	fclose(file);
+
 	return (EXIT_SUCCESS);
 }

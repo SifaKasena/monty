@@ -25,7 +25,7 @@ void interpret_file(FILE *file)
 		f = get_op_func(op);
 		if (f == NULL)
 		{
-			dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n", line_no, op);
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_no, op);
 			exit(EXIT_FAILURE);
 		}
 		f(&stack, line_no);

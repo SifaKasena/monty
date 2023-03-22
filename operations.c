@@ -1,7 +1,5 @@
 #include "monty.h"
 
-stack_t *top_element; /* Definition of the top element variable */
-
 /**
  * _push - implements push opcode
  * @stack: pointer to pointer to the head of the stack
@@ -19,7 +17,6 @@ void _push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	add_dnodeint(stack, atoi(arg));
-	top_element = *stack;
 }
 
 /**
@@ -42,10 +39,32 @@ void _pall(stack_t **stack, __attribute__((unused))unsigned int line_number)
  */
 void _pint(__attribute__((unused))stack_t **stack, unsigned int line_number)
 {
-	if (top_element == NULL)
+	if (*stack == NULL)
 	{
-		fprintf(stderr, "L%i: can't pint, dtack empty\n", line_number);
+		fprintf(stderr, "L%i: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	printf("%i\n", top_element->n);
+	printf("%i\n", (*stack)->n);
+}
+
+/**
+ * _pop - Removes the top element of the stack
+ * @stack: pointer to pointer to the head of the stack
+ * @line_number: line  number in the file
+ * Return: void
+ */
+void _pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *ptr;
+
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%i: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	ptr = *stack;
+	*stack = (*stack)->next;
+	free(ptr);
+	ptr = NULL;
 }

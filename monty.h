@@ -41,6 +41,7 @@ int delete_dnodeint_at_index(stack_t **head, unsigned int index);
 void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
 void _mod(stack_t **stack, unsigned int line_number);
+void _pchar(stack_t **stack, unsigned int line_number);
 int is_number(char *str);
 
 #endif /* MONTY_H */

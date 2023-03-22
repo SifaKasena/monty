@@ -28,3 +28,25 @@ void _mod(stack_t **stack, unsigned int line_number)
 	second->n = second->n % first->n;
 	delete_dnodeint_at_index(stack, 0);
 }
+
+/**
+ * _pchar - prints the top most element of a stack as a character
+ * @stack: pointer to pointer to the head of the stack
+ * @line_number: line  number in the file
+ * Return: void
+ */
+void _pchar(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if ((*stack)->n > 255 || (*stack)->n < 0)
+	{
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%c\n", (*stack)->n);
+}

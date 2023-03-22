@@ -80,3 +80,34 @@ int delete_dnodeint_at_index(stack_t **head, unsigned int index)
 
 	return (-1);
 }
+
+/**
+ * add_dnodeint_end - adds a new node at the end of a dlistint_t list
+ * @head: pointer to the head of a dlistint_t list
+ * @n: n member of new node
+ * Return: address of new node
+ */
+
+stack_t *add_dnodeint_end(stack_t **head, const int n)
+{
+	stack_t *node, *tmp = *head;
+
+	node = malloc(sizeof(stack_t));
+	if (node == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+	while (tmp && tmp->next)
+		tmp = tmp->next;
+
+	node->next = NULL;
+	node->prev = tmp;
+	node->n = n;
+	if (tmp)
+		tmp->next = node;
+	else
+		*head = node;
+
+	return (node);
+}

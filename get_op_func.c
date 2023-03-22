@@ -17,13 +17,15 @@ void (*get_op_func(char *op))(stack_t **stack, unsigned int line_number)
 		{"mod", _mod},
 		{"pchar", _pchar},
 		{"pstr", _pstr},
+		{"stack", _stack},
+		{"queue", _queue},
 		{NULL, NULL}
 	};
 
 	while (ops[i].opcode && strcmp(op, ops[i].opcode) != 0)
 	{
 		i++;
-		if (i > 6)
+		if (i > 8)
 			return (NULL);
 	}
 

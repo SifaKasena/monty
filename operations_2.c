@@ -77,3 +77,15 @@ void _pstr(stack_t **stack, unsigned int line_number)
 
 	printf("\n");
 }
+
+/**
+ * _revp - Print in reverse
+ * @stack: pointer to pointer to the head of the stack
+ * @line_number: line  number in the file
+ * Return: void
+ */
+
+void _revp(stack_t **stack, __attribute__((unused))unsigned int line_number)
+{
+	print_stack_reverse(*stack);
+}

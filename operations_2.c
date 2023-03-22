@@ -50,3 +50,30 @@ void _pchar(stack_t **stack, unsigned int line_number)
 
 	printf("%c\n", (*stack)->n);
 }
+
+/**
+ * _pstr - prints a string formed by the elements of the stack
+ * @stack: pointer to pointer to the head of the stack
+ * @line_number: line  number in the file
+ * Return: void
+ */
+void _pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *head = *stack;
+
+	if (head == NULL)
+	{
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	while (head)
+	{
+		if (head->n > 255 || head->n < 0 || head->n == 0)
+			break;
+		printf("%c", head->n);
+		head = head->next;
+	}
+
+	printf("\n");
+}

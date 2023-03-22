@@ -66,3 +66,66 @@ void _sub(stack_t **stack, unsigned int line_number)
 	free(first_top);
 	first_top = NULL;
 }
+
+/**
+ * _div - Divides the second top element of the stack by the top element
+ * of the stack
+ * @stack: pointer to pointer to the head of the stack
+ * @line_number: line  number in the file
+ * Return: void
+ */
+void _div(stack_t **stack, unsigned int line_number)
+{
+	stack_t *first_top, *second_top;
+	int quotient;
+
+	if ((*stack)->next == NULL || *stack == NULL)
+	{
+		fprintf(stderr, "L%i: can't div, stack too short\n",
+			line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	first_top = *stack;
+	second_top = (*stack)->next;
+
+	if (first_top == 0)
+	{
+		fprintf(stderr, "L%i: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	quotient = (second_top->n) / (first_top->n);
+
+	*stack = (*stack)->next;
+	(*stack)->n = quotient;
+	free(first_top);
+	first_top = NULL;
+}
+
+/**
+ * _mul - Multiplies the second top element with the top element of the stack
+ * @stack: pointer to pointer to the head of the stack
+ * @line_number: line  number in the file
+ * Return: void
+ */
+void _mul(stack_t **stack, unsigned int line_number)
+{
+	stack_t *first_top, *second_top;
+	int product;
+
+	if ((*stack)->next == NULL || *stack == NULL)
+	{
+		fprintf(stderr, "L%i: can't mul, stack too short\n",
+			line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	first_top = *stack;
+	second_top = (*stack)->next;
+	product = (second_top->n) * (first_top->n);
+
+	*stack = (*stack)->next;
+	(*stack)->n = product;
+	free(first_top);
+	first_top = NULL;
+}

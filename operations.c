@@ -13,7 +13,7 @@ void _push(stack_t **stack, unsigned int line_number)
 
 	if (arg == NULL || !is_number(arg))
 	{
-		dprintf(STDERR_FILENO, "L%u: usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	add_dnodeint(stack, atoi(arg));

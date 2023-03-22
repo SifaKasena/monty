@@ -92,6 +92,8 @@ void _swap(stack_t **stack, unsigned int line_number)
 
 	old_top = *stack;
 	new_top = (*stack)->next;
+	/*Set the prev ptr node after new_top to that of old_top*/
+	(((*stack)->next)->next)->prev = old_top;
 	old_top->next = new_top->next;
 	old_top->prev = new_top;
 	new_top->prev = NULL;

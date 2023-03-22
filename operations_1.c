@@ -32,12 +32,9 @@ void _add(stack_t **stack, unsigned int line_number)
 	first_top = *stack;
 	second_top = (*stack)->next;
 	sum = (first_top->n) + (second_top->n);
+	second_top->n = sum;
 
-	*stack = (*stack)->next;
-	(*stack)->prev = NULL;
-	(*stack)->n = sum;
-	free(first_top);
-	first_top = NULL;
+	delete_dnodeint_at_index(stack, 0);
 }
 
 /**
@@ -62,12 +59,9 @@ void _sub(stack_t **stack, unsigned int line_number)
 	first_top = *stack;
 	second_top = (*stack)->next;
 	difference = (second_top->n) - (first_top->n);
+	second_top->n = difference;
 
-	*stack = (*stack)->next;
-	(*stack)->prev = NULL;
-	(*stack)->n = difference;
-	free(first_top);
-	first_top = NULL;
+	delete_dnodeint_at_index(stack, 0);
 }
 
 /**
@@ -98,12 +92,8 @@ void _div(stack_t **stack, unsigned int line_number)
 		error(*stack);
 	}
 	quotient = (second_top->n) / (first_top->n);
-
-	*stack = (*stack)->next;
-	(*stack)->prev = NULL;
-	(*stack)->n = quotient;
-	free(first_top);
-	first_top = NULL;
+	second_top->n = quotient;
+	delete_dnodeint_at_index(stack, 0);
 }
 
 /**
@@ -127,10 +117,6 @@ void _mul(stack_t **stack, unsigned int line_number)
 	first_top = *stack;
 	second_top = (*stack)->next;
 	product = (second_top->n) * (first_top->n);
-
-	*stack = (*stack)->next;
-	(*stack)->prev = NULL;
-	(*stack)->n = product;
-	free(first_top);
-	first_top = NULL;
+	second_top->n = product;
+	delete_dnodeint_at_index(stack, 0);
 }

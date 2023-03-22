@@ -79,13 +79,49 @@ void _pstr(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * _revp - Print in reverse
+ * _rotl - rotates the stack to the top
  * @stack: pointer to pointer to the head of the stack
  * @line_number: line  number in the file
  * Return: void
  */
-
-void _revp(stack_t **stack, __attribute__((unused))unsigned int line_number)
+void _rotl(stack_t **stack, __attribute__((unused))unsigned int line_number)
 {
-	print_stack_reverse(*stack);
+	stack_t *last, *first;
+
+	last = first = *stack;
+	while (last && last->next)
+		last = last->next;
+
+	if (last->prev)
+	{
+		*stack = first->next;
+		(*stack)->prev = NULL;
+		last->next = first;
+		first->prev = last;
+		first->next = NULL;
+	}
+}
+
+/**
+ * _rotr - rotates the stack to the bottom
+ * @stack: pointer to pointer to the head of the stack
+ * @line_number: line  number in the file
+ * Return: void
+ */
+void _rotr(stack_t **stack, __attribute__((unused))unsigned int line_number)
+{
+	stack_t *last, *first;
+
+	last = first = *stack;
+	while (last && last->next)
+		last = last->next;
+
+	if (last->prev)
+	{
+		first->prev = last;
+		last->prev->next = NULL;
+		*stack = last;
+		(*stack)->prev = NULL;
+		(*stack)->next = first;
+	}
 }

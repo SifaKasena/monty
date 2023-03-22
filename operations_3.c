@@ -7,7 +7,8 @@
  * Return: void
  */
 
-void _stack(__attribute__((unused)) stack_t **stack, __attribute__((unused)) unsigned int line_number)
+void _stack(__attribute__((unused)) stack_t **stack,
+	    __attribute__((unused)) unsigned int line_number)
 {
 	flag_stack = 0;
 }
@@ -19,7 +20,8 @@ void _stack(__attribute__((unused)) stack_t **stack, __attribute__((unused)) uns
  * Return: void
  */
 
-void _queue(__attribute__((unused)) stack_t **stack, __attribute__((unused)) unsigned int line_number)
+void _queue(__attribute__((unused)) stack_t **stack,
+	    __attribute__((unused)) unsigned int line_number)
 {
 	flag_stack = 1;
 }

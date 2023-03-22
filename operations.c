@@ -82,6 +82,7 @@ void _pop(stack_t **stack, unsigned int line_number)
 void _swap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_top, *old_top;
+	int temp;
 
 	if ((*stack)->next == NULL || *stack == NULL)
 	{
@@ -92,12 +93,15 @@ void _swap(stack_t **stack, unsigned int line_number)
 
 	old_top = *stack;
 	new_top = (*stack)->next;
-	/*Set the prev ptr node after new_top to that of old_top*/
+	/*Set the prev ptr node after new_top to that of old_top*
 	(((*stack)->next)->next)->prev = old_top;
 	old_top->next = new_top->next;
 	old_top->prev = new_top;
 	new_top->prev = NULL;
 	new_top->next = old_top;
 
-	*stack = new_top;
+	*stack = new_top;*/
+	temp = old_top->n;
+	old_top->n = new_top->n;
+	new_top->n = temp;
 }

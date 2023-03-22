@@ -17,7 +17,7 @@ void interpret_file(FILE *file)
 	while (getline(&line, &n, file) != -1)
 	{
 		op = strtok(line, " \n");
-		if (op == NULL)
+		if (op == NULL || op[0] == '#')
 		{
 			line_no++;
 			continue;

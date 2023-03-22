@@ -36,13 +36,14 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void interpret_file(FILE *file);
+void interpret_file(FILE *file, stack_t *stack);
 void (*get_op_func(char *op))(stack_t **stack, unsigned int line_number);
 size_t print_dlistint(const stack_t *h);
 size_t print_stack_reverse(const stack_t *h);
 stack_t *add_dnodeint(stack_t **head, const int n);
 stack_t *add_dnodeint_end(stack_t **head, const int n);
 int delete_dnodeint_at_index(stack_t **head, unsigned int index);
+void free_dlistint(stack_t *head);
 void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
 void _revp(stack_t **stack, unsigned int line_number);
@@ -62,5 +63,6 @@ void _rotr(stack_t **stack, unsigned int line_number);
 void _stack(stack_t **stack, unsigned int line_number);
 void _queue(stack_t **stack, unsigned int line_number);
 int is_number(char *str);
+void error(stack_t *stack);
 
 #endif /* MONTY_H */

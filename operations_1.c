@@ -26,7 +26,7 @@ void _add(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%i: can't add, stack too short\n",
 			line_number);
-		exit(EXIT_FAILURE);
+		error(*stack);
 	}
 
 	first_top = *stack;
@@ -54,7 +54,7 @@ void _sub(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%i: can't sub, stack too short\n",
 			line_number);
-		exit(EXIT_FAILURE);
+		error(*stack);
 	}
 
 	first_top = *stack;
@@ -83,7 +83,7 @@ void _div(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%i: can't div, stack too short\n",
 			line_number);
-		exit(EXIT_FAILURE);
+		error(*stack);
 	}
 
 	first_top = *stack;
@@ -92,7 +92,7 @@ void _div(stack_t **stack, unsigned int line_number)
 	if (first_top == 0)
 	{
 		fprintf(stderr, "L%i: division by zero\n", line_number);
-		exit(EXIT_FAILURE);
+		error(*stack);
 	}
 	quotient = (second_top->n) / (first_top->n);
 
@@ -117,7 +117,7 @@ void _mul(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%i: can't mul, stack too short\n",
 			line_number);
-		exit(EXIT_FAILURE);
+		error(*stack);
 	}
 
 	first_top = *stack;

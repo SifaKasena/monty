@@ -14,7 +14,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	if (arg == NULL || !is_number(arg))
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
+		error(*stack);
 	}
 
 	if (flag_stack == 0)
@@ -41,12 +41,12 @@ void _pall(stack_t **stack, __attribute__((unused))unsigned int line_number)
  * @line_number: line  number in the file
  * Return: void
  */
-void _pint(__attribute__((unused))stack_t **stack, unsigned int line_number)
+void _pint(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%i: can't pint, stack empty\n", line_number);
-		exit(EXIT_FAILURE);
+		error(*stack);
 	}
 	printf("%i\n", (*stack)->n);
 }
@@ -64,7 +64,7 @@ void _pop(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%i: can't pop an empty stack\n", line_number);
-		exit(EXIT_FAILURE);
+		error(*stack);
 	}
 
 	ptr = *stack;
@@ -87,7 +87,7 @@ void _swap(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%i: can't swap, stack too short\n",
 			line_number);
-		exit(EXIT_FAILURE);
+		error(*stack);
 	}
 
 	old_top = *stack;

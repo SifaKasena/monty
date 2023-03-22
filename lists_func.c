@@ -21,7 +21,7 @@ size_t print_dlistint(const stack_t *h)
 }
 
 /**
- * print_dlistint_reverse - Prints all the elements of a dlistint_t in reverse
+ * print_stack_reverse - Prints all the elements of a dlistint_t in reverse
  * @h: The linked list
  * Return: the number of nodes
  */
@@ -66,8 +66,8 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 	node = malloc(sizeof(stack_t));
 	if (node == NULL)
 	{
-		dprintf(STDERR_FILENO, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
+		fprintf(stderr, "Error: malloc failed\n");
+		error(*head);
 	}
 	*head = node;
 	node->next = tmp;
@@ -128,7 +128,7 @@ stack_t *add_dnodeint_end(stack_t **head, const int n)
 	if (node == NULL)
 	{
 		dprintf(STDERR_FILENO, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
+		error(*head);
 	}
 	while (tmp && tmp->next)
 		tmp = tmp->next;

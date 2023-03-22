@@ -1,4 +1,5 @@
 #ifndef MONTY_H
+#define _GNU_SOURCE
 #define MONTY_H
 #include <stdio.h>
 #include <string.h>
@@ -20,6 +21,9 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
+extern stack_t *top_element;
+extern stack_t *bottom_element;
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -39,6 +43,7 @@ size_t print_dlistint(const stack_t *h);
 stack_t *add_dnodeint(stack_t **head, const int n);
 void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
+void _pint(stack_t **stack, unsigned int line_number);
 int is_number(char *str);
 
 #endif /* MONTY_H */

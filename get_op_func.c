@@ -12,13 +12,14 @@ void (*get_op_func(char *op))(stack_t **stack, unsigned int line_number)
 	instruction_t ops[] = {
 		{"push", _push},
 		{"pall", _pall},
+		{"pint", _pint},
 		{NULL, NULL}
 	};
 
 	while (strcmp(op, ops[i].opcode) != 0)
 	{
 		i++;
-		if (i > 1)
+		if (i > 2)
 			return (NULL);
 	}
 

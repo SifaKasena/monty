@@ -31,4 +31,5 @@ void interpret_file(FILE *file)
 		f(&stack, line_no);
 		line_no++;
 	}
+	free(line);
 }

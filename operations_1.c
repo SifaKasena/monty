@@ -34,13 +34,15 @@ void _add(stack_t **stack, unsigned int line_number)
 	sum = (first_top->n) + (second_top->n);
 
 	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
 	(*stack)->n = sum;
 	free(first_top);
 	first_top = NULL;
 }
 
 /**
- * _sub - Subtracts the top element from the second top element of the stack.
+ * _sub - Subtracts the top element from the second top element of
+ * the stack.
  * @stack: pointer to pointer to the head of the stack
  * @line_number: line  number in the file
  * Return: void
@@ -62,6 +64,7 @@ void _sub(stack_t **stack, unsigned int line_number)
 	difference = (second_top->n) - (first_top->n);
 
 	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
 	(*stack)->n = difference;
 	free(first_top);
 	first_top = NULL;
@@ -97,6 +100,7 @@ void _div(stack_t **stack, unsigned int line_number)
 	quotient = (second_top->n) / (first_top->n);
 
 	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
 	(*stack)->n = quotient;
 	free(first_top);
 	first_top = NULL;
@@ -125,6 +129,7 @@ void _mul(stack_t **stack, unsigned int line_number)
 	product = (second_top->n) * (first_top->n);
 
 	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
 	(*stack)->n = product;
 	free(first_top);
 	first_top = NULL;

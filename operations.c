@@ -16,7 +16,11 @@ void _push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	add_dnodeint(stack, atoi(arg));
+
+	if (flag_stack == 0)
+		add_dnodeint(stack, atoi(arg));
+	else
+		add_dnodeint_end(stack, atoi(arg));
 }
 
 /**

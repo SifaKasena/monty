@@ -1,5 +1,7 @@
 #include "monty.h"
 
+int flag_stack = 0;
+
 /**
  * main - The entry point of the monty interpreter
  * @argc: Argument count

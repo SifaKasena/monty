@@ -22,7 +22,7 @@ void _add(stack_t **stack, unsigned int line_number)
 	stack_t *first_top, *second_top;
 	int sum;
 
-	if ((*stack)->next == NULL || *stack == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%i: can't add, stack too short\n",
 			line_number);
@@ -52,7 +52,7 @@ void _sub(stack_t **stack, unsigned int line_number)
 	stack_t *first_top, *second_top;
 	int difference;
 
-	if ((*stack)->next == NULL || *stack == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%i: can't sub, stack too short\n",
 			line_number);
@@ -82,7 +82,7 @@ void _div(stack_t **stack, unsigned int line_number)
 	stack_t *first_top, *second_top;
 	int quotient;
 
-	if ((*stack)->next == NULL || *stack == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%i: can't div, stack too short\n",
 			line_number);
@@ -117,7 +117,7 @@ void _mul(stack_t **stack, unsigned int line_number)
 	stack_t *first_top, *second_top;
 	int product;
 
-	if ((*stack)->next == NULL || *stack == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%i: can't mul, stack too short\n",
 			line_number);

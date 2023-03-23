@@ -32,11 +32,7 @@ void (*get_op_func(char *op))(stack_t **stack, unsigned int line_number)
 	};
 
 	while (ops[i].opcode && strcmp(op, ops[i].opcode) != 0)
-	{
 		i++;
-		if (i > 15)
-			return (NULL);
-	}
 
 	return (ops[i].f);
 }

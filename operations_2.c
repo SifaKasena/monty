@@ -57,15 +57,9 @@ void _pchar(stack_t **stack, unsigned int line_number)
  * @line_number: line  number in the file
  * Return: void
  */
-void _pstr(stack_t **stack, unsigned int line_number)
+void _pstr(stack_t **stack, __attribute__((unused))unsigned int line_number)
 {
 	stack_t *head = *stack;
-
-	if (head == NULL)
-	{
-		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
-		error(*stack);
-	}
 
 	while (head)
 	{

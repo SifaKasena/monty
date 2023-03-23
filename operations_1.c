@@ -92,7 +92,7 @@ void _div(stack_t **stack, unsigned int line_number)
 	first_top = *stack;
 	second_top = (*stack)->next;
 
-	if (first_top == 0)
+	if (first_top->n == 0)
 	{
 		fprintf(stderr, "L%i: division by zero\n", line_number);
 		error(*stack);

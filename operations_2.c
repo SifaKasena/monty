@@ -42,7 +42,7 @@ void _pchar(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
 		error(*stack);
 	}
-	if ((*stack)->n > 255 || (*stack)->n < 0)
+	if ((*stack)->n > 127 || (*stack)->n < 0)
 	{
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
 		error(*stack);
@@ -69,7 +69,7 @@ void _pstr(stack_t **stack, unsigned int line_number)
 
 	while (head)
 	{
-		if (head->n > 255 || head->n < 0 || head->n == 0)
+		if (head->n > 127 || head->n < 0 || head->n == 0)
 			break;
 		printf("%c", head->n);
 		head = head->next;

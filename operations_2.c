@@ -92,7 +92,7 @@ void _rotl(stack_t **stack, __attribute__((unused))unsigned int line_number)
 	while (last && last->next)
 		last = last->next;
 
-	if (last->prev)
+	if (last && last->prev)
 	{
 		*stack = first->next;
 		(*stack)->prev = NULL;
@@ -116,7 +116,7 @@ void _rotr(stack_t **stack, __attribute__((unused))unsigned int line_number)
 	while (last && last->next)
 		last = last->next;
 
-	if (last->prev)
+	if (last && last->prev)
 	{
 		first->prev = last;
 		last->prev->next = NULL;

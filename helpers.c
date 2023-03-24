@@ -8,6 +8,8 @@
 
 int is_number(char *str)
 {
+	if (str[0] == '-' && str[1])
+		str++;
 	while (*str != 0)
 	{
 		if (*str > '9' || *str < '0')
